@@ -8,14 +8,33 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return render_template(
-        "home.html",
+        "home.html"
+    )
+
+@app.route("/login")
+def login():
+    return render_template(
+        "login.html"
+    )
+
+@app.route("/verify")
+def verify():
+    return render_template(
+        "verify.php"
     )
 
 @app.route("/hello/<name>")
-def meGongaga(name = None):
+def helloEcho(name = None):
     return render_template(
         "test.html",
         name=name,
+        date=datetime.now()
+    )
+@app.route("/hello/")
+def meGongaga():
+    return render_template(
+        "test.html",
+        name="",
         date=datetime.now()
     )
 
